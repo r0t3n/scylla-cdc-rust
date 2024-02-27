@@ -1,0 +1,22 @@
+[package]
+name = "scylla-cdc-replicator"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+scylla = { workspace = true }
+scylla-cdc = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+async-trait = { workspace = true }
+anyhow = { workspace = true }
+itertools = { workspace = true }
+uuid = { workspace = true, features = ["v1"]}
+futures-util = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+clap = { workspace = true, features = ["derive"] }
+
+[dev-dependencies]
+scylla-cdc-test-utils = { workspace = true }

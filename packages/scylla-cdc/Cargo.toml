@@ -1,0 +1,32 @@
+[package]
+name = "scylla-cdc"
+version.workspace = true
+edition = "2021"
+description = "Library for consuming ScyllaDB CDC log for Rust"
+repository = "https://github.com/scylladb/scylla-cdc-rust"
+readme = "../README.md"
+keywords = ["database", "scylla", "cdc"]
+categories = ["database"]
+license = "Apache-2.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = { workspace = true }
+scylla = { workspace = true }
+tokio = { workspace = true, features = ["rt", "io-util", "net", "time", "macros", "sync"] }
+chrono = { workspace = true }
+futures = { workspace = true }
+uuid = { workspace = true }
+num_enum = { workspace = true }
+async-trait = { workspace = true }
+tracing = { workspace = true }
+itertools = { workspace = true }
+hex = { workspace = true }
+
+[dev-dependencies]
+hex = { workspace = true }
+rand = { workspace = true }
+scylla-cdc-test-utils = { workspace = true }
+# To compile one of the doc tests, we need rt-multi-thread feature.
+tokio = { workspace = true, features = ["rt", "io-util", "net", "time", "macros", "sync", "rt-multi-thread"] }

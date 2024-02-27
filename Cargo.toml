@@ -1,8 +1,31 @@
 [workspace]
 resolver = "2"
 members = [
-    "scylla-cdc",
-    "scylla-cdc-printer",
-    "scylla-cdc-replicator",
-    "scylla-cdc-test-utils",
+    "packages/scylla-cdc",
+    "packages/scylla-cdc-test-utils",
+    "examples/scylla-cdc-printer", 
+    "examples/scylla-cdc-replicator",
 ]
+default-members = ["packages/scylla-cdc"]
+
+[workspace.package]
+version = "0.2.0"
+
+[workspace.dependencies]
+scylla-cdc = { path = "packages/scylla-cdc" }
+scylla-cdc-test-utils = { path = "packages/scylla-cdc-test-utils" }
+
+scylla = { version = "0.11.1", features = ["chrono", "time"] }
+anyhow = "1.0.80"
+tokio = { version = "1.1.0" }
+chrono = "0.4.34"
+futures = "0.3.30"
+futures-util = "0.3.30"
+uuid = {version = "1.7.0", features = ["v1"]}
+num_enum = "0.7.2"
+async-trait = "0.1.77"
+tracing = "0.1.40"
+itertools = "0.12.1"
+hex = "0.4.3"
+rand = "0.8.5"
+clap = { version = "4.5.1" }
